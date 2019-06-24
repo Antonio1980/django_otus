@@ -1,0 +1,119 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+{% block body %}
+    <h1>Choose an article</h1>
+
+    <div>
+    {% for num in articles %}
+        {% if num == 1 %}
+            <h1>Article {{ num }}</h1>
+        {% elif num == 2 %}
+            <h2>Article {{ num }}</h2>
+        {% elif num == 3 %}
+            <h3>Article {{ num }}</h3>
+        {% else %}
+            <h4>Article {{ num }}</h4>
+        {% endif %}
+        {% empty %}
+        <div>Sorry, no articles</div>
+    {% endfor %}
+    </div>
+
+    <div>
+        <h4>
+            {%  autoescape off %}
+                {% firstof val0 val1 val2 'Nothing' %}
+            {% endautoescape %}
+        </h4>
+    </div>
+
+    <div>
+        {% if obj.foo <= obj.bar %}
+            <div>obj.foo ({{ obj.foo }}) &lt;= obj.bar ({{ obj.bar }})</div>
+        {% endif %}
+
+    <br>
+
+    {{ obj.data.spam }}
+    {{ obj.list.2 }}
+
+    {% if obj.list|length > 5 %}
+        <h3>Length gretter that 5</h3>
+    {% else %}
+        <h3>Liist is lower that 5</h3>
+    {% endif %}
+    </div>
+
+    <div>
+        <h5>{{ obj.list|add:"5" }}</h5>
+        <h5>{{ val0|add:"5" }}</h5>
+        <h5>{{ obj.list|add:obj.baz }}</h5>
+
+        <pre>{{ val1|center:16 }}</pre>
+        <pre>{{ val0|capfirst }}</pre>
+        <pre>{{ val1|title }}</pre>
+        <h4>{{ a_title|title }}</h4>
+
+{#        <h5>{{ string|linebreaksbr }}</h5>#}
+
+{#        <h4>{{ current|date:"DATETIME_FORMAT" }}</h4>#}
+{% comment %}
+    <div>
+        <ul class="list-group">
+            {% for a_date in dates %}
+                {% ifchanged a_date.month %}
+                    <br>
+                    <h3>{{ a_date|date:"F" }}</h3>
+                {%  endifchanged %}
+                {% ifchanged a_date.date %}
+                    <hr>
+                    <h4>{{ a_date|date:"SHORT_DATE_FORMAT" }}</h4>
+                    {% else %}
+                    ;
+                {% endifchanged %}
+                {{ a_date|date:"TIME_FORMAT" }}
+            {% endfor %}
+        </ul>
+    </div>
+
+    </div>
+{% endcomment %}
+
+    <div>
+        Look:
+        {% spaceless %}
+            <p>
+                <a href="#">Google</a>
+            </p>
+        {% endspaceless %}
+    </div>
+
+    <div>
+        <ul class="list-group">
+        {% for item in items %}
+            <li class="list-group-item">{{ item }} berr{{ item|pluralize:"y,ies" }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <pre>
+        {% templatetag openblock %}
+        {% templatetag closeblock %}
+        {% templatetag closevariable %}
+        {% templatetag openbrace %}
+        {% templatetag opencomment %}
+    </pre>
+
+        <pre>
+            {% verbatim %}
+                {% for item in items %}
+                    {{ a_date|date:"SHORT_DATE_FORMAT" }}
+                {% endfor %}
+            {% endverbatim %}
+        </pre>
+
+{% endblock %}
