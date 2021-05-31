@@ -132,3 +132,5 @@ myproj/homepage/__pycache__/
 myproj/homepage/migrations/__pycache__/
 myproj/myproj/__pycache__/
 .idea/vcs.xml
+.idea/*
+.idea

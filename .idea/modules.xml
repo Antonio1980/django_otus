@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../django_otus/.idea/django_otus.iml" filepath="$PROJECT_DIR$/../django_otus/.idea/django_otus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/django_otus.iml" filepath="$PROJECT_DIR$/.idea/django_otus.iml" />
     </modules>
   </component>
 </project>
